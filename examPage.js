@@ -26,6 +26,7 @@ async function fetchData() {
         console.log('hi')
         applyData()
         getPens()
+        putShareInfo()
         return
       } else {
         let url = new URL(window.location.href);
@@ -308,3 +309,35 @@ function getPens() {
   
   
 
+
+
+function putShareInfo() {
+    const examLinkInp = document.querySelector(".exam-link-input")
+    const examIdInp = document.querySelector(".exam-id-input")
+
+    const examLink = `https://tosads.github.io/examPage.html?_id=${json['_id']}`
+    const examId = json['_id']
+
+    examLinkInp.textContent = examLink
+    examIdInp.textContent = examId
+}
+
+function shareBtn() {
+    const shareOptions = document.querySelector('.share-options')
+    if (shareOptions.classList[1] == 'hidden') {
+        shareOptions.classList.remove('hidden')
+        shareOptions.classList.add('visible')
+        shareOptions.style.visibility = 'visible'
+    } else if (shareOptions.classList[1] == 'visible') {
+        shareOptions.classList.remove('visible')
+        shareOptions.classList.add('hidden')
+        shareOptions.style.visibility = 'hidden'
+    }
+}
+
+
+function copyClick(item) {
+    navigator.clipboard.writeText(item.textContent)
+    item.style.background = 'gold'
+    setTimeout(()=>{item.style.background = '#96dee6'},100)
+}

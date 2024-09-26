@@ -127,6 +127,53 @@ body {
     gap: 0.9rem;
 }
 
+/* share button */
+
+.share-icon {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.share-options {
+    position: absolute;
+    top: 45px;  
+    right: 10px;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: small;
+    background-color: #afe9f0;
+    color: black;
+    min-width: 100px;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+    z-index: 2;
+    visibility: hidden;
+}
+.share-options div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    gap: 3px;
+}
+
+.share-options div p:nth-child(2) {
+    border: 1px solid black;
+    padding: 3px;
+    background-color: #96dee6;
+    border-radius: 5px;
+    font-weight:normal;
+    cursor:pointer;
+}
+
+
 /* exam */
 .MCQForm {
     display: flex;
