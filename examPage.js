@@ -129,11 +129,17 @@ function startCountdown(minutes) {
 let answers = {}
 
 function checkBoxToggle(checkb) {
+    console.log(checkb)
     // we will need that many times to see what answer the student choose 
     let answerCheckd = checkb.className.split(' ')
     console.log(answerCheckd)
     // know which qustion the user answered 
     let questionNumber = String(checkb.parentElement.parentElement.className.split(" ")[0][9])
+    if (checkb.parentElement.parentElement.className.split(" ")[0][10]) {
+        console.log('test')
+        questionNumber += String(checkb.parentElement.parentElement.className.split(" ")[0][10])
+    }
+    
     let questionChoosenElement = document.querySelector(`.firstMCQQ${questionNumber}`)
     
     /// see how many answers are in the question
