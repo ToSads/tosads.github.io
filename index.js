@@ -133,6 +133,7 @@ function showExams(subject, group, language) {
     </button>`
     if (filterdExams.length > 0) {
         for (let i in filterdExams) {
+            
             catagoriesDiv.innerHTML += `
                 <div onclick="examClick('${filterdExams[i]['_id']}')" class="examDiv">
                     <p>
@@ -144,10 +145,13 @@ function showExams(subject, group, language) {
                         <iconify-icon icon="carbon:time-filled" width="25" height="25"  style="color: white"></iconify-icon>
 
                         ${filterdExams[i]['timeInMinutes']} دقيقة 
-                    </p>
+                    </p> <p>
+                        <iconify-icon icon="clarity:administrator-solid" width="25px" height="25px"  style="color: white"></iconify-icon>
+
+                        ${filterdExams[i]['addedBy']} 
+                    </p> 
                  </div>
             `
-
         }
     } else {
         catagoriesDiv.innerHTML = `

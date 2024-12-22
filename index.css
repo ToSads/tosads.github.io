@@ -226,24 +226,39 @@ body {
     justify-content: space-around;
     direction: rtl;
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     gap: 1rem;
     border-bottom: 6px solid #265154;
     border-left: 6px solid #265154;
     border-right: 6px solid #265154;
     border-top: 6px solid #45929a;
     cursor: pointer;
+    position: relative;
 }
 .examDiv:hover {
     background-color: #45929a;
 }
+
 .examDiv p {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 10px;
     text-wrap: wrap;
+}
+
+.examDiv p:nth-child(1),.examDiv p:nth-child(2) {
+    justify-content: center;
+    align-items: center;
     text-align: start;
+}
+
+
+.addedBy {
+    text-align: center;
+    align-self: center;
+    font-size: 17px;
+    border: double gold;
+    padding: 2px;
+
 }
 
 #aboutus {
