@@ -51,7 +51,7 @@ fetchData()
 let mcqForm = document.querySelector('.firstMCQF')
 async function applyData() {
 
-    let questionsHTML = `<h1 class="examName">اسم الاختبار <br> "${json['name']}"</h1><h3 dir="rtl" style="margin-top: 10px;" class="examName">إبدأ !</h3>`;
+    let questionsHTML = `<h2 class="examName" dir="rtl">اسم الاختبار <br> "${json['name']}"</h2><h3 dir="rtl" style="margin-top: 10px;" class="examName">إبدأ !</h3>`;
     console.log(json)
             Object.keys(json['questions']).forEach(element=> {
                 let theQuestion = json['questions'][element]

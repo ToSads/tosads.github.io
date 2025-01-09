@@ -158,7 +158,10 @@ function showExams(subject, group, language) {
         <button class="homeBtn" onclick="putHTML()">
         <iconify-icon icon="mdi:home" width="34" height="34"  style="color: white"></iconify-icon>
         </button>
-        <p>لايوجد اختبارات</p>
+        <p dir="rtl" class="no-exams">لايوجد اختبارات
+        <br>
+        للتقديم: <a href="https://t.me/Tohelp_sadsbot">@Tohelp_sadsbot</a>
+        </p>
         `
     }
 }

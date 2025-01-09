@@ -119,6 +119,12 @@ body {
     font-size: 1.7rem;
     position: relative;
 }
+.tosadsnavbaricon {
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 10px;
+    opacity: 0.9;
+}
 
 .forexams {
     font-size: 0.7rem;
@@ -159,7 +165,7 @@ body {
     min-height: 100vh;
     margin-top: 65px;
     mask-image: linear-gradient(black 90%, transparent);
-    -webkit-mask-image: linear-gradient(black 90%, transparent);
+    -webkit-mask-image: linear-gradient(black 95%, transparent);
     display: flex;
     justify-content: start;
     align-items: center;
@@ -206,9 +212,9 @@ body {
     border: none;
     border-radius: 100%;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 3;
+    bottom: 15px;
+    right: 15px;
+    z-index: 4;
     cursor: pointer;
 }
 
@@ -261,20 +267,83 @@ body {
 
 }
 
+.no-exams a {
+    color: white;
+}
+
 #aboutus {
     text-align: center;
-    font-size: large;
+    font-size: 1.3rem;
     direction: rtl;
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
-    margin-top: 8rem;
+    margin: 6rem 4rem;
     line-height: 150%;
     position: relative;
     background-color: #3b2520;
     padding: 20px 0;
     text-shadow: 0 0 5px #377279;
+    border-radius: 5px;
+    border: 2px solid white;
+    box-shadow: 0 0 6px 1px white;
 }
 
+@media (max-width: 611px) {
+    #aboutus{ 
+        margin: 6rem 2rem;
+    }
+    .mainCatagoriesDiv {
+        mask-image:none;
+        -webkit-mask-image: none;
+    }
+}
+
+#aboutus h1 {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.aboutus-article {
+    margin: 0.5rem;
+}
+@media (max-width: 717px) {
+    #aboutus {
+        font-size: 1.1rem;
+    }
+}
+
+.aboutus-cards {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    flex-wrap: wrap;
+    margin: 2rem;
+}
+
+.aboutus-card {
+    border: 2px solid white;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+    height: fit-content;
+}
+.aboutus-card img {
+    width: 100%;
+    background-color: rgba(211, 211, 211, 0.502);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.aboutus-card p {
+    background-color: whitesmoke;
+    color: black;
+    margin: 0;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+/* 
 @property --angle{
     syntax: "<angle>";
     initial-value: 0deg;
@@ -308,7 +377,7 @@ body {
         --angle: 360deg;
     }
 }
-
+ */
 #aboutus a {
     color: white;
 }

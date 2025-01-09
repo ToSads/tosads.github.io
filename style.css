@@ -84,6 +84,12 @@ body {
     text-wrap: wrap;
     text-align: center;
     line-height: 3rem;
+    font-size: 20px;
+    
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 
@@ -92,8 +98,8 @@ body {
     border: none;
     border-radius: 100%;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 15px;
+    right: 15px;
     z-index: 3;
     cursor: pointer;
 }
@@ -198,7 +204,7 @@ body {
     box-shadow: 0 0 7px 1px white;
 }
 
-.question-text {
+/* .question-text {
     background-color: rgb(46, 46, 46);
     border-radius: 5px;
     position: absolute;
@@ -216,7 +222,45 @@ body {
     align-items: center;
     text-align: center;
     border: 1px solid white;
+    text-overflow:clip;
+
+    white-space: normal;
+    word-break: break-all;
+    
 }
+.question-text::after {
+    content: "↵";
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    color: red;
+    font-size: 16px;
+} */
+.question-text {
+    background-color: rgb(46, 46, 46);
+    border-radius: 5px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    min-height: 70px;
+    max-height: 90px;
+    max-width: 60%;
+    padding: 5px;
+    translate: -50% 0;
+    font-size: 1rem;
+    border: 1px solid white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4; 
+}
+
 
 .answers {
     display: flex;
@@ -246,6 +290,12 @@ body {
     border-right: 6px solid #818992;
     border-top: 6px solid #d8d8d8;
     cursor: pointer;
+    
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4; 
 }
 
 .answerHover:hover {
