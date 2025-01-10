@@ -249,6 +249,11 @@ body {
     display: flex;
     gap: 10px;
     text-wrap: wrap;
+    
+    white-space: normal;
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .examDiv p:nth-child(1),.examDiv p:nth-child(2) {
