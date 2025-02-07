@@ -78,6 +78,145 @@ function putHTML() {
 }
 fetchAndApplyData()
 
+
+let sectionsObj = {
+    "Biology": {
+        "arabicSections": [
+            "الأول - الخلية",  
+            "الثاني - الأنسجة",  
+            "الثالث - التكاثر",  
+            "الرابع - التكوين الجنيني",  
+            "الخامس - الوراثة"
+        ],
+        "englishSections": [
+            "1 - The cell",  
+            "2 - Tissues",  
+            "3 - Reproduction",  
+            "4 - Embryonic Development",  
+            "5 - genetics"
+        ]
+    },
+    "Physics": {
+        "arabicSections": [
+            "الأول - متسعات",  
+            "الثاني - الحث الكهرومغناطيسي",  
+            "الثالث - التيار المتناوب",  
+            "الرابع - الموجات الكهرومغناطيسية",  
+            "الخامس - البصريات الفيزيائية",  
+            "السادس - الفيزياء الحديثة",  
+            "السابع - الكترونيات الحالة الصلبة",  
+            "الثامن - الاطياف الذرية والليزر",  
+            "التاسع - الفيزياء النووية"
+        ],
+        "englishSections": [
+            "1 - Capacitar",  
+            "2 - Electromagnetic induction",  
+            "3 - Alternating current",  
+            "4 - Electromagnetic oscillation",  
+            "5 - Optical physics",  
+            "6 - Modern physics",  
+            "7 - Solid state electronics",  
+            "8 - ATOMIC SPECTRUM AND LASER",  
+            "9 - Nuclear physics"  
+        ]
+    },
+    "Chemistry": {
+        "arabicSections": [
+            "الأول - الثرموداينمك",  
+            "الثاني - الاتزان الكيميائي",  
+            "الثالث - الاتزان الايوني",  
+            "الرابع - الكهربائية",  
+            "الخامس - التناسقية",  
+            "السادس - التحليلية",  
+            "السابع - العضوية",  
+            "الثامن - الكيمياء الحياتية"
+        ],
+        "englishSections": [
+            "1 - Thermodynamics",  
+            "2 - Chemical Equilibrium",  
+            "3 - Ionic Equilibrium",  
+            "4 - Electrochemistry",  
+            "5 - Coordination Chemistry",  
+            "6 - Chemical Analysis",  
+            "7 - Organic Chemistry",  
+            "8 - Biochemistry"  
+        ]
+    },
+    "English": {
+        "defaultSections": [
+            "Unit 1",
+            "Unit 2",
+            "Unit 3",
+            "Unit 4",
+            "Unit 5",
+            "Unit 6",
+            "Unit 7",
+            "Unit 8",
+            "Literature",
+        ]
+    },
+    "French": {
+        "defaultSections": [
+            "Prononciation",
+             "le présent",
+             "l'impératif",
+             "l'imparfait",
+             "le passé composé",         
+            "le futur simple",
+             "passé récent + futur proche + présent continu",
+             "le plus-que-parfait",
+            "le conditionnel présent",
+             "le futur antérieur",
+             "le conditionnel passé",
+             "le subjonctif",
+            "le gérondif",
+             "جمل الشرط",
+             "جمل التزامن",
+             "Les pronoms d’objet",
+             "les pronoms relatifs",
+            "l'interrogation",
+             "la négation",
+             "سؤال الفراغات والاختيارات",
+             "les prépositions",
+            "Le féminin",
+             "Les adverbes",
+             "le pluriel",
+             "أسئلة ومفردات الدرس الأول",
+             "الدرس الثاني",
+            "الدرس الثالث",
+             "الدرس الرابع",
+             "الدرس الخامس"
+            ]
+    },
+    "Islamic": {
+        "defaultSections": [
+            "الوحدة الاولى",
+            "الوحدة الثانية",
+            "الوحدة الثالثة",
+            "الوحدة الرابعة",
+            "الوحدة الخامسة",
+        ]
+    },
+    "Literature": {
+        "defaultSections": ["الجزء الاول","الجزء الثاني"]
+    },
+    "Grammar": {
+        "defaultSections": [
+            "الاستفهام",  
+            "النفي",  
+            "التقديم والتأخير",  
+            "التوكيد",  
+            "النداء",  
+            "المدح والذم",  
+            "العرض والتحضيض",  
+            "التمني والترجي",  
+            "الإغراء والتحذير",  
+            "التعجب"  
+        ]
+    },
+}
+
+
 function catagoryClicked(subject) {
     if (subject == 'Biology' || subject == 'Physics' || subject == 'Chemistry') {
         showLanguages(subject)
@@ -89,7 +228,7 @@ function catagoryClicked(subject) {
 function showLanguages(subject) {
     catagoriesDiv.innerHTML = `
         <button class="homeBtn" onclick="putHTML()">
-        <iconify-icon icon="mdi:home" width="34" height="34"  style="color: white"></iconify-icon>
+        <img src="media/images/icons/ic--baseline-home (1).png" alt="Home">
         </button>
         <div onclick="showGroups('${subject}', 'English')" class="catagoryDiv">منهج انجليزي</div>
         
@@ -118,7 +257,9 @@ function showGroups(subject, language) {
     showExams(subject, '2025',language)
 }
 
-function showExams(subject, group, language) {
+function showExams(subject, group, language, section) {
+    console.log(subject, group, language, section)
+    console.log(language != undefined ?  language.toLowerCase() + 'Sections' : 'defaultSections')
     let filterdExams = data.filter(exam => {
         if (subject == 'Biology' || subject == 'Physics' || subject == 'Chemistry') {
             return (exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(group) != -1)
@@ -127,10 +268,37 @@ function showExams(subject, group, language) {
             return (exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(group) != -1)
         }
     })
+    if (section) {
+        console.log("there is section")
+        filterdExams = filterdExams.filter(exam => {
+            if (section != 'all' && section != "other") {
+                return exam['section'] == section
+            } else {
+                if (section == 'all') {
+                    return exam
+                } else if (section == "other") {
+                    return (exam['section'] == "other" || exam['section'] == undefined)
+                }
+            }
+        })
+    }
     console.log(filterdExams)
-    catagoriesDiv.innerHTML = `<button class="homeBtn" onclick="putHTML()">
-    <iconify-icon icon="mdi:home" width="34" height="34"  style="color: white"></iconify-icon>
-    </button>`
+    let catagorySelectedSections = sectionsObj[subject][(language ?  language.toLowerCase() + 'Sections' : 'defaultSections')]
+    let catagorySelectedSectionsHtml = `<option value='all'>كل الاختبارات</option>`
+    for (let i in catagorySelectedSections) {
+        catagorySelectedSectionsHtml += `
+            <option ${(catagorySelectedSections[i] == section ? 'selected' : '')} value="${catagorySelectedSections[i]}">${catagorySelectedSections[i]}</option>
+        `
+    }
+
+    catagoriesDiv.innerHTML = `
+        <select onchange='showExams("${subject}","${group}",${language != undefined ? '"' + language + '"' : undefined}, this.value)' class="filterInput"> ${catagorySelectedSectionsHtml}
+        <option ${("other" == section ? 'selected' : '')} value='other'>اخرى / اختبارات شاملة</option>
+        </select>
+        <button class="homeBtn" onclick="putHTML()">
+        <img src="media/images/icons/ic--baseline-home (1).png" alt="Home">
+        </button>
+    `
     if (filterdExams.length > 0) {
         for (let i in filterdExams) {
             
@@ -156,13 +324,17 @@ function showExams(subject, group, language) {
     } else {
         catagoriesDiv.innerHTML = `
         <button class="homeBtn" onclick="putHTML()">
-        <iconify-icon icon="mdi:home" width="34" height="34"  style="color: white"></iconify-icon>
+        <img src="media/images/icons/ic--baseline-home (1).png" alt="Home">
         </button>
         <p dir="rtl" class="no-exams">لايوجد اختبارات
         <br>
         للتقديم: <a href="https://t.me/Tohelp_sadsbot">@Tohelp_sadsbot</a>
         </p>
         `
+        if (section) {
+            catagoriesDiv.innerHTML += `        <select onchange='showExams("${subject}","${group}",${language != undefined ? '"' + language + '"' : undefined}, this.value)' class="filterInput"> ${catagorySelectedSectionsHtml}
+        <option ${("other" == section ? 'selected' : '')} value='other'>اخرى / اختبارات شاملة</option>`
+        }
     }
 }
 

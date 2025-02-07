@@ -170,6 +170,7 @@ body {
     justify-content: start;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 
 .catagories {
@@ -179,7 +180,7 @@ body {
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    margin: 2rem;
+    margin: 3.5rem 2rem 2rem 2rem;
 }
 
 .catagoryDiv {
@@ -211,12 +212,16 @@ body {
     background-color: transparent;
     border: none;
     border-radius: 100%;
-    position: fixed;
+    position:fixed;
     bottom: 15px;
     right: 15px;
     z-index: 4;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
     cursor: pointer;
 }
+
 
 .examDiv {
     background-color: #377279;
@@ -249,12 +254,73 @@ body {
     display: flex;
     gap: 10px;
     text-wrap: wrap;
-    
-    white-space: normal;
-    word-break: break-word;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
+
+.filterInput {
+    background-color: #204749; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 13px; 
+    text-align: center;
+    width: 200px; 
+    padding: 10px; 
+    border-top: 0;
+    padding-top: 15px;
+    border-left: 2px solid #45929a; 
+    border-right: 2px solid #45929a; 
+    border-bottom: 2px solid #45929a; 
+    border-radius: 0px 0px 10px 10px; 
+    outline: none; 
+    cursor: pointer; 
+    font-family: "Rubik", sans-serif;
+    transition: all 0.3s ease;
+
+    position: absolute;
+    top: 0px;
+    right: 53px;
+    z-index: 5;
+}
+
+.filterInput:hover {
+    background-color: #377279; 
+    border-color: #57abb5;
+    box-shadow: 0 0 8px rgba(64, 128, 135, 0.6);
+}
+
+.filterInput:focus {
+    border-color: #57abb5; 
+    box-shadow: 0 0 12px rgba(87, 171, 181, 0.8);
+}
+
+.filterInput option {
+    background-color: #2a1c19; 
+    color: white; 
+    font-weight: bold; 
+    font-size: 14px; 
+    padding: 10px; 
+    text-align: center; 
+    transition: background-color 0.3s ease; 
+    
+    z-index: 5;
+}
+
+.filterInput option:hover {
+    background-color: #45929a; 
+    color: white; 
+}
+
+.filterInput option:checked {
+    background-color: #377279; 
+    color: white; 
+}
+
+
+
+
+
+
+
+
 
 .examDiv p:nth-child(1),.examDiv p:nth-child(2) {
     justify-content: center;
@@ -424,13 +490,20 @@ footer a {
     }
     
     .catagories {
-        margin: 1.5rem;
+        margin: 3.5rem 1.5rem 1.5rem 1.5rem;
         
     }
     .catagoryDiv {
         width: 6.9rem;
         height:6.9rem;
         font-size: 0.7rem;
+    }
+    .filterInput {
+         border: 2px solid #45929a;
+         border-radius: 10px;
+         top: 0;
+         left: 50%;
+         transform: translate(-50%,0);
     }
     
 
