@@ -32,6 +32,11 @@ async function fetchAndApplyData() {
     }
     putHTML()
 }
+
+
+function closead() {
+    document.querySelector('.ad-div').style = 'display:none;'
+}
 function putHTML() {
     catagoriesDiv.innerHTML = `
         <div onclick="catagoryClicked('Biology')" class="biologyDiv catagoryDiv">
