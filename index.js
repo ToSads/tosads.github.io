@@ -267,7 +267,9 @@ function showExams(subject, group, language, section) {
     console.log(language != undefined ?  language.toLowerCase() + 'Sections' : 'defaultSections')
     let filterdExams = data.filter(exam => {
         if (subject == 'Biology' || subject == 'Physics' || subject == 'Chemistry') {
-            return (exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(group) != -1)
+            console.log(exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(Number(group)) != -1)
+            
+            return (exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(Number(group)) != -1)
         } else {
              console.log(exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(Number(group)) != -1)
             console.log(subject + group)
