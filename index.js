@@ -269,8 +269,10 @@ function showExams(subject, group, language, section) {
         if (subject == 'Biology' || subject == 'Physics' || subject == 'Chemistry') {
             return (exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(group) != -1)
         } else {
+             console.log(exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(Number(group)) != -1)
             console.log(subject + group)
             return (exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(Number(group)) != -1)
+      
         }
     })
     if (section) {
