@@ -9,7 +9,7 @@ if (!localStorage.getItem('reload') || localStorage.getItem('reload') >= 5) {
 let json;
 let data;
 async function fetchData() {
-    const url = "https://tourmaline-delirious-burglar.glitch.me/exams";
+    const url = "https://testttt-5ujy.onrender.com/exams";
     try {
       const response = await fetch(url);
       if (!response.ok) {
