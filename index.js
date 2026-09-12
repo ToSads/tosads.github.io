@@ -270,7 +270,7 @@ function showExams(subject, group, language, section) {
             return (exam['working'] == true && exam['catagory'] == subject && exam['language'] == language && exam['group'].indexOf(group) != -1)
         } else {
             console.log(subject + group)
-            return (exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(group) != -1)
+            return (exam['working'] == true && exam['catagory'] == subject && exam['group'].indexOf(Number(group)) != -1)
         }
     })
     if (section) {
